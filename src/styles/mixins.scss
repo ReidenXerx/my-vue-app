@@ -1,0 +1,4 @@
+
+@mixin dynamicPadding($padding-left-fractions) {
+    padding-left: $padding-left-fractions * 20px
+  }
