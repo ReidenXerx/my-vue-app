@@ -9,9 +9,9 @@
   </div>
   <div class="container-flex row" >
     <div class="container-flex column">
-      <div class="container-flex justify-content-center margin-top-common">
-        <button class="control-buttons " @click="onClickHandlerExpand">Expand</button>
-        <button class="control-buttons" @click="onClickHandlerCollapse">Collapse</button>
+      <div class="control-block container-flex justify-content-center margin-top-common">
+        <button class="control-block__button control-buttons " @click="onClickHandlerExpand">Expand</button>
+        <button class="control-block__button control-buttons" @click="onClickHandlerCollapse">Collapse</button>
       </div>
       <DropdownItem :currentPath="[0]" :entityCombined="firstNode"/>
     </div>

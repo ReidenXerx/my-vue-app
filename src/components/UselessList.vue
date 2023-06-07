@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<h2>{{ `It's useless list` }}</h2>
-		<ul>
+		<h2 class="header">{{ `It's useless list` }}</h2>
+		<ul class="list">
 			<li v-for="(item, index) in uselessList" :key="item">
-				<div class="container-flex justify-content-space-between useless-list-li-div">
+				<div class="container-flex justify-content-space-between list__item">
 					{{ `${(item as string).slice(0, 15)}...` }}
-					<button @click="() => removeUselessListElementHandler(index)">x</button>
+					<button class="list__button" @click="() => removeUselessListElementHandler(index)">x</button>
 				</div>
 			</li>
 		</ul>

@@ -1,15 +1,15 @@
 <template>
-  <div class="container-flex column dropdownItem">
+  <div class="dropdown-item container-flex column">
     <div :class="className">
-      <button @click="toggle">
-        <p v-if="opened">-</p>
-        <p v-else>+</p>
+      <button class="dropdown-item__toggle" @click="toggle">
+        <p class="dropdown-item__toggle_opened" v-if="opened">-</p>
+        <p class="dropdown-item__toggle_closed" v-else>+</p>
       </button>
       
-      <p>{{ content }}</p>
+      <p class="dropdown-item__content">{{ content }}</p>
 
     </div>
-    <div v-if="opened" class="container-flex column">
+    <div v-if="opened" class="dropdown-item__children container-flex column">
       <DropdownItem v-for="(entity, index) in siblings" :entityCombined="entity" :currentPath="computeCurrentPath(index)" :key="entity._nodeId" />  
     </div>
   </div>
@@ -60,6 +60,7 @@ export default defineComponent({
           'color-white': isFocused.value,
           'align-items-center': true,
           'container-flex': true,
+          'dropdown-item__itself': true,
         };
       });
 
@@ -122,7 +123,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.dropdownItem {
+.dropdown-item {
   @include dynamicPadding(2)
 }
 </style>
