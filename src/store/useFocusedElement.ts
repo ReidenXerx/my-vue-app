@@ -7,26 +7,26 @@ export type State = {
     actionType?: ActionTypes,
 }
 
-const persistentKey = 'focusedElement'
+const focusedElementPersistentKey = 'focusedElement'
 
-export const useFocusedElement = defineStore('focusedElement', {
+export const useFocusedElement = defineStore(focusedElementPersistentKey, {
   state: () => ({
-    [persistentKey]: (JSON.parse(localStorage.getItem(persistentKey) || '[0]')),
-    selectedElement: (JSON.parse(localStorage.getItem(persistentKey) || '[0]')),
+    [focusedElementPersistentKey]: (JSON.parse(localStorage.getItem(focusedElementPersistentKey) || '[0]')),
+    selectedElement: (JSON.parse(localStorage.getItem(focusedElementPersistentKey) || '[0]')),
     actionType: undefined,
   }),
   getters: {
-    getFocusedElement: (state) => state[persistentKey],
+    getFocusedElement: (state) => state[focusedElementPersistentKey],
     getActionType: (state) => state.actionType
   },
   actions: {
     setFocusElement: (state: State, { focusedElement }: { focusedElement: Array<number> }) => {
-      localStorage.setItem(persistentKey, JSON.stringify(focusedElement))
-      state[persistentKey] = focusedElement
+      localStorage.setItem(focusedElementPersistentKey, JSON.stringify(focusedElement))
+      state[focusedElementPersistentKey] = focusedElement
     },
     clearFocusElement: (state: State) => {
-      localStorage.setItem(persistentKey, JSON.stringify([0]))
-      state[persistentKey] = [0]
+      localStorage.setItem(focusedElementPersistentKey, JSON.stringify([0]))
+      state[focusedElementPersistentKey] = [0]
     },
     setActionType: (state: State, { actionType }: { actionType: ActionTypes }) => {
       state.actionType = actionType
